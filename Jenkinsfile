@@ -3,10 +3,10 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'echo "this is building code"'
-                sh 'sudo apt-get update && sudo apt-get install -y python3-pip'
+                sh 'python3 --version'
+                sh 'pip3 --version'
                 sh 'pip3 install -r requirements.txt'
-            }
+              }
         }
         
         stage('Test') {
