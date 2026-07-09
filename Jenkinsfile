@@ -3,7 +3,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                 sh "echo \"this is build phase\""
+                sh 'python3 --version'
+                sh 'pip3 --version'
+                sh 'pip3 install -r requirements.txt'
               }
         }
         
