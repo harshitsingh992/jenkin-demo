@@ -2,14 +2,16 @@ pipeline {
     agent any
     stages {
         stage('Build') {
-            steps {
+              steps {
                 sh '''
                   python3 --version
-                  python3 -m pip install --user --upgrade pip
-                  python3 -m pip install --user -r requirements.txt
+                  python3 -m venv venv
+                  . venv/bin/activate
+                  pip install --upgrade pip
+                  pip install -r requirements.txt
                 '''
               }
-        }
+            }
         
         stage('Test') {
             steps {
