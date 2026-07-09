@@ -1,12 +1,11 @@
 pipeline {
-    agent {
-        docker { image 'python:3.10-slim' }
-    }
+    agent any
     stages {
         stage('Build') {
             steps {
-                sh "echo \"this is building code\""
-                sh "pip install -r requirements.txt"
+                sh 'echo "this is building code"'
+                sh 'sudo apt-get update && sudo apt-get install -y python3-pip'
+                sh 'pip3 install -r requirements.txt'
             }
         }
         
